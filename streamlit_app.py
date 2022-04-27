@@ -22,11 +22,11 @@ try:
    if not fruit_choice:
       streamlit.error("Please select a fruit to get information.")
   else:
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice)
-frutyvice_normalized = pandas.json_normalize(fruityvice_response.json())
-streamlit.dataframe(frutyvice_normalized)
+      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice)
+      frutyvice_normalized = pandas.json_normalize(fruityvice_response.json())
+      streamlit.dataframe(frutyvice_normalized)
 except URLError as e:
-streamlit.error() 
+   streamlit.error() 
 streamlit.stop()
 #import snowflake.connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
